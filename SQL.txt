@@ -1,0 +1,9 @@
+select ShoppingCarts.CartID,ShoppingCarts.BookID,ShoppingCarts.Quantity, Books.Price, ShoppingCarts.Quantity * Books.Price Subtotal
+from ShoppingCarts, Books
+where ShoppingCarts.BookID = Books.BookID
+group by ShoppingCarts.CartID,ShoppingCarts.BookID,ShoppingCarts.Quantity, Books.Price;
+
+select ShoppingCarts.CartID,SUM(ShoppingCarts.Quantity * Books.Price) GrandTotal
+from ShoppingCarts, Books
+where ShoppingCarts.BookID = Books.BookID
+group by ShoppingCarts.CartID;
